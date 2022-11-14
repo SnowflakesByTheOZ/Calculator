@@ -25,9 +25,15 @@ document.addEventListener('click', event => {
         console.log(`${event.target.innerHTML} was clicked`) ; 
     }
     if (event.target.className == 'add-btn'){
+        if(screenWindow.value != ""){
+            String(screenWindow.value += event.target.innerHTML) ; 
+        }
         console.log('Add button was clicked') ; 
     }
     if (event.target.className == 'subtract-btn'){
+        if(screenWindow.value != ""){
+            String(screenWindow.value += event.target.innerHTML) ; 
+        }
         console.log('Subtract button was clicked') ; 
     }
     if (event.target.className == 'equal-btn'){
