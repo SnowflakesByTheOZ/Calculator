@@ -14,8 +14,13 @@ let screenWindow = document.querySelector('.screen') ;
 
 document.addEventListener('click', event => {
     if (event.target.className == 'digit'){
+        if(screenWindow.value === ""){
+            screenWindow.value = `${event.target.innerHTML}` ; 
+        }else {
+            String(screenWindow.value += event.target.innerHTML) ; 
+        }
+        
         console.log(`${event.target.innerHTML} was clicked`) ; 
-        screenWindow.value = `${event.target.innerHTML}` ; 
     }
     if (event.target.className == 'add-btn'){
         console.log('Add button was clicked') ; 
