@@ -8,11 +8,14 @@ let equalButton = document.querySelector('.equal-btn') ;
 
 let clearButton = document.querySelector('.clear-btn') ; 
 
+let screenWindow = document.querySelector('.screen') ; 
+
 // console.log(typeof(digitButton))
 
 document.addEventListener('click', event => {
     if (event.target.className == 'digit'){
         console.log(`${event.target.innerHTML} was clicked`) ; 
+        screenWindow.value = `${event.target.innerHTML}` ; 
     }
     if (event.target.className == 'add-btn'){
         console.log('Add button was clicked') ; 
