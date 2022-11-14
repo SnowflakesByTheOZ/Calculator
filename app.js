@@ -10,11 +10,13 @@ let clearButton = document.querySelector('.clear-btn') ;
 
 let screenWindow = document.querySelector('.screen') ; 
 
+screenWindow.value = 0 ; 
+
 // console.log(typeof(digitButton))
 
 document.addEventListener('click', event => {
     if (event.target.className == 'digit'){
-        if(screenWindow.value === ""){
+        if(screenWindow.value === "0"){
             screenWindow.value = `${event.target.innerHTML}` ; 
         }else {
             String(screenWindow.value += event.target.innerHTML) ; 
@@ -32,7 +34,8 @@ document.addEventListener('click', event => {
         console.log('Equal button was clicked') ; 
     }
     if (event.target.className == 'clear-btn'){
-        console.log('Clear button was clicked') ; 
+        screenWindow.value = 0 ; 
+        console.log('Clearing screen...') ; 
     }
     
 })
