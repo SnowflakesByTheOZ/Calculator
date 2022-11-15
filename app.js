@@ -12,13 +12,32 @@ let screenWindow = document.querySelector('.screen') ;
 
 screenWindow.value = 0 ; 
 
+let operators = {
+    '+' : function (a,b) {return a + b}, 
+}
+
 // console.log(typeof(digitButton))
 
 document.addEventListener('click', event => {
+    let a ; 
+
+    let b ; 
+
+    var sign ; 
+    
+    
     if (event.target.className == 'digit'){
         if(screenWindow.value === "0"){
-            screenWindow.value = `${event.target.innerHTML}` ; 
-        }else {
+           screenWindow.value = `${event.target.innerHTML}` ; 
+           
+        }
+        if (operators.key != ""){
+            screenWindow.value = event.target.innerHTML ; 
+            let b = screenWindow.value ; 
+            console.log(b) ; 
+        }
+        
+        else {
             String(screenWindow.value += event.target.innerHTML) ; 
         }
         
@@ -26,18 +45,23 @@ document.addEventListener('click', event => {
     }
     if (event.target.className == 'add-btn'){
         if(screenWindow.value != ""){
-            String(screenWindow.value += event.target.innerHTML) ; 
+             sign  = '+' ; 
+            let a = screenWindow.value ; 
+            a = parseInt(a); 
+
+            console.log(`a = ${a}`) ; 
+           
         }
-        console.log('Add button was clicked') ; 
+        // console.log('Add button was clicked') ; 
     }
-    if (event.target.className == 'subtract-btn'){
-        if(screenWindow.value != ""){
-            String(screenWindow.value += event.target.innerHTML) ; 
-        }
-        console.log('Subtract button was clicked') ; 
-    }
+    
     if (event.target.className == 'equal-btn'){
-        console.log('Equal button was clicked') ; 
+        console.log(operators["+"](a,b)) ; 
+
+        
+
+        
+        ; 
     }
     if (event.target.className == 'clear-btn'){
         screenWindow.value = 0 ; 
